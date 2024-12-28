@@ -1,0 +1,13 @@
+services:
+  mariadb:
+    image: mariadb:11.7.1-ubi9-rc
+    environment:
+      MARIADB_ROOT_PASSWORD: "dbpass"
+      MARIADB_DATABASE: "db"
+      MARIADB_USER: "dbuser"
+      MARIADB_PASSWORD: "dbpass"
+    volumes:
+      - "./db/config:/etc/mysql/conf.d"
+      - "./db/data:/var/lib/mysql"
+    ports:
+      - "3306:3306"
